@@ -1,0 +1,48 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+
+{% if current_user.is_authenticated %}
+    <h1>Flask-Admin example</h1>
+    <p class="lead">
+        Authentication
+    </p>
+    <p>
+        This example shows how you can use Flask-Login for authentication. It is only intended as a basic demonstration.
+    </p>
+{% else %}
+    <div class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+                <div>
+                    <form method="POST" action="">
+                        {{ form.csrf_token }}
+                        {{ form.hidden_tag() if form.hidden_tag }}
+                        {% for f in form if f.type != 'CSRFTokenField' %}
+                        <div>
+                        {{ f.label }}
+                        {{ f(class='form-control')|safe }}
+                        {% if f.errors %}
+                            {% for e in f.errors %}
+                            <p style="color: red">{{ e }}</p>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                        {% endfor %}
+                        <button class="btn" type="submit" style="margin-top: 1em">Submit</button>
+                    </form>
+                    {{ link | safe }}
+                </div>
+
+                {% if current_user.is_authenticated %}
+                <a class="btn btn-primary" href="/"><i class="icon-arrow-left icon-white"></i> Back</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+{% endblock body %}
+

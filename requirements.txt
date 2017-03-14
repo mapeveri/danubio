@@ -1,0 +1,23 @@
+# Framework
+Flask==0.12
+# Admin style Django
+Flask-Admin==1.5.0
+# Orm database
+Flask-SQLAlchemy==2.2
+# For manage forms
+Flask-WTF==0.14.2
+# For manage migrations
+Flask-Migrate==2.0.3
+# For manage shell
+Flask-Script==2.0.5
+# Cors api
+Flask-Cors==3.0.2
+# For create api's
+Flask-RESTful==0.3.5
+# For send mails
+Flask-Mail==0.9.1
+# Authentication
+Flask-Login==0.3.2
+
+# Drivers
+psycopg2==2.6.1
