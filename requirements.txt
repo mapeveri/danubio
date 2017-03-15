@@ -19,5 +19,8 @@ Flask-Mail==0.9.1
 # Authentication
 Flask-Login==0.3.2
 
+# Serial port
+pyserial==3.3
+
 # Drivers
 psycopg2==2.6.1
