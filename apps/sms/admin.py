@@ -1,7 +1,7 @@
 from wtforms import PasswordField
 
 from app import db, admin
-from apps.main import models
+from apps.sms import models
 from apps.utils import ModelViewSecurity
 
 

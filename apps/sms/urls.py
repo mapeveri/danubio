@@ -1,5 +1,5 @@
 from app import app
-from apps.main import controllers
+from apps.sms import controllers
 
 
 app.add_url_rule(

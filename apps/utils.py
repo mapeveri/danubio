@@ -7,7 +7,7 @@ from flask_admin import expose, helpers
 from flask_admin.base import AdminIndexView
 from sqlalchemy.orm import class_mapper
 
-from apps.main.forms import LoginForm
+from apps.sms.forms import LoginForm
 
 
 class ModelViewSecurity(ModelView):

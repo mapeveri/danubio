@@ -1,7 +1,7 @@
 from flask_restful import Resource
 
 from app import api
-from apps.main import models
+from apps.sms import models
 from apps.utils import MiximJson
 
 

@@ -10,7 +10,7 @@ from flask_mail import Mail
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
-from apps.main import controllers
+from apps.sms import controllers
 
 
 # App flask

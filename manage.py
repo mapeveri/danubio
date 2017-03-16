@@ -5,7 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager, prompt, prompt_pass, Shell
 
 from app import app, db
-from apps.main import models
+from apps.sms import models
 
 # Configutation app
 app.config.from_object('conf.config')
