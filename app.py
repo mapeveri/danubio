@@ -10,8 +10,6 @@ from flask_mail import Mail
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 
-from apps.sms import controllers
-
 
 # App flask
 app = Flask(__name__)
@@ -58,7 +56,7 @@ admin = load_admin()
 
 def import_modules():
     """
-    Import modules admin and controllers
+    Import modules
     """
     from apps import admin, api, urls
 

@@ -4,7 +4,7 @@ from wtforms import TextField, PasswordField
 from wtforms.validators import DataRequired, EqualTo, Length, ValidationError
 
 from app import db
-from apps.sms import models
+from apps.auth import models
 
 
 class LoginForm(FlaskForm):

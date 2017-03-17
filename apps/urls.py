@@ -17,4 +17,4 @@ def not_found(error):
 
 
 # Declare imports url modules
-include("apps.sms.urls")
+include("apps.auth.urls")

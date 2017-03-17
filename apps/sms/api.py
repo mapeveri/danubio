@@ -6,6 +6,16 @@ from apps.modem import ModemGSM
 from apps.sms import models
 
 
+class Auth(Resource):
+    """
+    Authentication session api
+    """
+    def post(self):
+        user = request.form['user']
+        password = request.form['password']
+        pass
+
+
 class SendSms(Resource):
     """
     Send sms API with ModemGSM class
@@ -36,4 +46,5 @@ class SendSms(Resource):
             }
 
 
+api.add_resource(Auth, '/api/auth')
 api.add_resource(SendSms, '/api/send_sms')

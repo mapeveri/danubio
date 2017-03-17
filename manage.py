@@ -5,7 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager, prompt, prompt_pass, Shell
 
 from app import app, db
-from apps.sms import models
+from apps.auth import models
 
 # Configutation app
 app.config.from_object('conf.config')
@@ -19,6 +19,7 @@ manager = Manager(app)
 # shell context
 def _make_context():
     return dict(app=app, db=db, models=models)
+
 
 def _validuser():
     """
