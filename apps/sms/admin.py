@@ -2,7 +2,7 @@ from wtforms import PasswordField
 
 from app import db, admin
 from apps.auth.models import User
-from apps.utils import ModelViewSecurity
+from apps.auth.utils import ModelViewSecurity
 
 
 class UserAdmin(ModelViewSecurity):

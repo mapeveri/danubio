@@ -1,7 +1,4 @@
-import os
-import sys
-
-from flask import Flask, render_template
+from flask import Flask
 
 from flask_admin import Admin
 from flask_cors import CORS
@@ -43,7 +40,7 @@ def load_admin():
     """
     Configuration admin
     """
-    from apps.utils import MyAdminIndexView
+    from apps.auth.controllers import MyAdminIndexView
     admin = Admin(
         app, name='Admin', index_view=MyAdminIndexView(),
         template_mode='bootstrap3', base_template='admin_master.html',
