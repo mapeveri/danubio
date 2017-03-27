@@ -29,7 +29,7 @@ class SendSms(Resource):
                     'description': 'Error endpoint send_sms'
                 }
 
-            return {'result': 'ok', description: 'Success'}
+            return {'result': 'ok', 'description': 'Success'}
         else:
             return {
                 'result': 'error',
