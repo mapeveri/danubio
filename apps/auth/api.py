@@ -33,4 +33,24 @@ class AuthLogin(Resource, Auth):
             }
 
 
+
+class LogOutLogin(Resource, Auth):
+    """
+    Logout api
+    """
+    def post(self):
+        if login.current_user.is_authenticated:
+            login.logout_user()
+            return {
+                'result': 'ok',
+                'description': 'Logout'
+            }
+        else:
+            return {
+                'result': 'error',
+                'description': 'You are not logged in'
+            }
+
+
 api.add_resource(AuthLogin, '/api/auth')
+api.add_resource(LogOutLogin, '/api/logout')
