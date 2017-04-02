@@ -6,12 +6,15 @@ import flask_login
 from flask_mail import Mail
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
 
 
 # App flask
 app = Flask(__name__)
 # Config flask
 app.config.from_object('conf.config')
+# CSRF protect
+CSRFProtect(app)
 
 # Config SQLAlchemy and migrations
 db = SQLAlchemy(app)
