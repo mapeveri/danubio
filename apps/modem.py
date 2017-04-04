@@ -2,6 +2,7 @@ import time
 import serial
 
 from app import app
+from apps.sms.models import Message
 
 
 class ModemGSM(object):
@@ -20,7 +21,7 @@ class ModemGSM(object):
             cls.instance = object.__new__(cls, *args, **kargs)
         return cls.instance
 
-    def send_sms(self, number, message):
+    def send_sms(self, number, message, user):
         time.sleep(1)
         self.port.write('ATZ\r')
         response = self.port.read(64)
@@ -37,6 +38,13 @@ class ModemGSM(object):
         response = self.port.read(64)
 
         self.port.write(chr(26))
+
+        # Add message in db
+        message = Message(
+            message=message, number=number, user=user
+        )
+        db.session.add(message)
+        db.session.commit()
 
     def __del__(self):
         self.port.close()

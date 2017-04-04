@@ -1,5 +1,5 @@
 from flask import request
-from flask_login import login_required
+from flask_login import current_user, login_required
 from flask_restful import Resource
 
 from app import api
@@ -22,7 +22,7 @@ class SendSms(Resource):
                 # Instance GSM Class
                 instanceGsm = ModemGSM()
                 # Send SMS
-                instanceGsm.send_sms(number, message)
+                instanceGsm.send_sms(number, message, current_user)
             except Exception:
                 return {
                     'result': 'error',
