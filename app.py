@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Config flask
 app.config.from_object('conf.config')
 # CSRF protect
-CSRFProtect(app)
+csrf = CSRFProtect(app)
 
 # Config SQLAlchemy and migrations
 db = SQLAlchemy(app)
@@ -28,7 +28,7 @@ CORS(
 )
 
 # Config Api REST
-api = Api(app)
+api = Api(app, decorators=[csrf.exempt])
 
 # Config email
 mail = Mail()
