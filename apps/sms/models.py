@@ -15,6 +15,7 @@ class Message(db.Model):
         db.DateTime, nullable=False,
         default=datetime.datetime.utcnow
     )
+    internal_id = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
     user = db.relationship('User', foreign_keys=user_id)
 

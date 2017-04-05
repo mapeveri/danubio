@@ -15,14 +15,17 @@ class SendSms(Resource):
         # Parameters sms
         number = request.form['number']
         message = request.form['message']
+        internal_id = request.form['internal_id']
 
         # Check parameters
-        if number and message:
+        if number and message and internal_id:
             try:
                 # Instance GSM Class
                 instanceGsm = ModemGSM()
                 # Send SMS
-                instanceGsm.send_sms(number, message, current_user)
+                instanceGsm.send_sms(
+                    number, message, current_user, internal_id
+                )
             except Exception:
                 return {
                     'result': 'error',

@@ -21,7 +21,14 @@ class ModemGSM(object):
             cls.instance = object.__new__(cls, *args, **kargs)
         return cls.instance
 
-    def send_sms(self, number, message, user):
+    """
+    Send sms with command at.
+        :param number: Number to send sms
+        :param content: Description sms
+        :param user: User sending sms
+        :param internal_id: Identication of transaction (Campaign)
+    """
+    def send_sms(self, number, message, user, internal_id):
         self.port.write(b'ATZ\r')
         time.sleep(0.5)
         # response = self.port.read(64)
@@ -47,7 +54,8 @@ class ModemGSM(object):
 
         # Add message in db
         message = Message(
-            message=message, number=number, user=user
+            message=message, number=number,
+            user=user, internal_id=internal_id
         )
         db.session.add(message)
         db.session.commit()
