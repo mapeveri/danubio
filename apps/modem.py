@@ -1,4 +1,3 @@
-import time
 import serial
 
 from app import app, db
@@ -13,7 +12,7 @@ class ModemGSM(object):
     port = None
 
     def __init__(self):
-        self.port = serial.Serial(app.config["SERIAL_GSM"])
+        self.port = serial.Serial(app.config["SERIAL_GSM"], 9600, timeout=5)
 
     # Singleton
     def __new__(cls, *args, **kargs):
@@ -30,25 +29,25 @@ class ModemGSM(object):
     """
     def send_sms(self, number, message, user, internal_id):
         self.port.write(b'ATZ\r')
-        time.sleep(0.5)
-        # response = self.port.read(64)
+        response = self.port.readline()
+        print(response)
 
         self.port.write(b'AT+CMGF=1\r')
-        time.sleep(0.5)
-        # response = self.port.read(64)
+        response = self.port.readline()
+        print(response)
 
         number_gsm = str.encode(app.config["NUMBER_GSM"])
         self.port.write(b'AT+CSCA="' + number_gsm + b'"')
-        time.sleep(0.5)
-        # response = self.port.read(64)
+        response = self.port.readline()
+        print(response)
 
         self.port.write(b'AT+CMGS="' + str.encode(number) + b'"\r')
-        time.sleep(0.5)
-        # response = port.read(64)
+        response = self.port.readline()
+        print(response)
 
         self.port.write(str.encode(message) + b"\r")
-        time.sleep(0.5)
-        # response = self.port.read(64)
+        response = self.port.readline()
+        print(response)
 
         self.port.write(bytes([26]))
 
