@@ -60,5 +60,13 @@ class ModemGSM(object):
         db.session.add(message)
         db.session.commit()
 
+    """
+    Get received sms of a internal_id with command at.
+        :param user: User logged
+        :param internal_id: Identication of transaction (Campaign)
+    """
+    def get_received_sms(self, user, internal_id):
+        return None
+
     def __del__(self):
         self.port.close()
