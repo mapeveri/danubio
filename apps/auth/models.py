@@ -40,7 +40,7 @@ class User(db.Model):
             raise NotImplementedError('No `id` attribute - override `get_id`')
 
     def __repr__(self):
-        return '<User %r>' % (self.username)
+        return self.username
 
 
 def hash_password(target, value, oldvalue, initiator):
