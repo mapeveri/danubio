@@ -34,3 +34,12 @@ Migrations command
 2. python manage.py db migrate
 3. python manage.py db upgrade
 
+Api Rest Endpoints
+------------------
+
+1. For send sms: POST to **/api/send_sms**
+
+   Parameters:
+      * number 
+      * message
+      * internal_id
