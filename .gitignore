@@ -5,3 +5,4 @@ database.db
 migrations
 conf/config_local.py
 notes.txt
+/.vscode/

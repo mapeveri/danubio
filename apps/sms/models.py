@@ -4,7 +4,16 @@ from app import db
 
 class Message(db.Model):
     """
-    Model Message
+    Model Message.
+
+    - **parameters**:
+        :param id: Identification Message.
+        :param message: Content sms message.
+        :param number: Number sms.
+        :param created: Created sms.
+        :param internal_id: Id campaign.
+        :param user_id: User that created the sms.
+        :param user: User relation. 
     """
     __tablename__ = 'Messages'
 

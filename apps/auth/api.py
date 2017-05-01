@@ -8,7 +8,7 @@ from apps.auth.utils import Auth
 
 class AuthLogin(Resource, Auth):
     """
-    Authentication login api
+    Authentication login api.
     """
     def post(self):
         if login.current_user.is_authenticated:
@@ -33,10 +33,9 @@ class AuthLogin(Resource, Auth):
             }
 
 
-
 class LogOutLogin(Resource, Auth):
     """
-    Logout api
+    Logout api.
     """
     def post(self):
         if login.current_user.is_authenticated:

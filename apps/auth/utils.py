@@ -8,7 +8,7 @@ from apps.auth import models
 
 class Auth(object):
     """
-    Authentication utils
+    Authentication utils.
     """
     def validate_login(self, check_user=True, user_object=None, passw=None):
         # Check if get user model
@@ -58,7 +58,7 @@ class Auth(object):
 
 class ModelViewSecurity(ModelView):
     """
-    ModelView admin login required
+    ModelView admin login required.
     """
     def is_accessible(self):
         return login.current_user.is_authenticated

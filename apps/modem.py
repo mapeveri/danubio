@@ -6,7 +6,7 @@ from apps.sms.models import Message
 
 class ModemGSM(object):
     """
-    Class for manage GSM Modem
+    Class for manage GSM Modem.
     """
     instance = None
     port = None

@@ -8,7 +8,7 @@ from apps.modem import ModemGSM
 
 class SendSms(Resource):
     """
-    Send sms API with ModemGSM class
+    Send sms API with ModemGSM class.
     """
     @login_required
     def post(self):
@@ -45,7 +45,7 @@ class SendSms(Resource):
 
 class GetReceivedSms(Resource):
     """
-    Get received sms API with ModemGSM class
+    Get received sms API with ModemGSM class.
     """
     @login_required
     def post(self):

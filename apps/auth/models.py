@@ -8,7 +8,18 @@ from app import db, login_manager
 
 class User(db.Model):
     """
-    Model User
+    Model User.
+
+    - **parameters**:
+        :param id: Identification user.
+        :param username: Username.
+        :email: Email user.
+        :password: Password user.
+        :first_name: Full name user.
+        :last_name: Surname user.
+        :date_join: Date join user.
+        :is_active: Is a active user.
+        :is_admin: Is a admin user.
     """
     __tablename__ = 'Users'
 
@@ -54,6 +65,6 @@ event.listen(User.password, 'set', hash_password, retval=True)
 @login_manager.user_loader
 def load_user(id):
     """
-    For flask-login get user id
+    For flask-login get user id.
     """
     return User.query.get(int(id))

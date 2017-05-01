@@ -9,8 +9,7 @@ from apps.auth.forms import LoginForm
 
 class MyAdminIndexView(AdminIndexView):
     """
-    Create customized index view class that
-    handles login & registration
+    Create customized index view class that handles login & registration.
     """
     @expose('/')
     def index(self):
@@ -40,7 +39,7 @@ class MyAdminIndexView(AdminIndexView):
 
 class IndexView(View):
     """
-    Index main view
+    Index main view.
     """
     def dispatch_request(self):
         return redirect("/admin/login")

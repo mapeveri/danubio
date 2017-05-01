@@ -7,7 +7,11 @@ from apps.auth.utils import Auth
 
 class LoginForm(FlaskForm, Auth):
     """
-    Login form
+    Login form.
+
+    - **parameters**:
+        :param username: Username.
+        :param password: Password login.
     """
     username = TextField('Username', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
