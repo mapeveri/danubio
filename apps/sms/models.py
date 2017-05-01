@@ -13,7 +13,7 @@ class Message(db.Model):
         :param created: Created sms.
         :param internal_id: Id campaign.
         :param user_id: User that created the sms.
-        :param user: User relation. 
+        :param user: User relation.
     """
     __tablename__ = 'Messages'
 

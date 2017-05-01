@@ -11,6 +11,14 @@ class Auth(object):
     Authentication utils.
     """
     def validate_login(self, check_user=True, user_object=None, passw=None):
+        """
+        Validate login form fields.
+
+        - **parameters**:
+            :param check_user: Check if is a user model.
+            :param user_object: User object model.
+            :param passw: Password value.
+        """
         # Check if get user model
         if not check_user:
             user = user_object
@@ -46,6 +54,12 @@ class Auth(object):
         return True
 
     def get_user(self, username=None):
+        """
+        Get user object.
+
+        - **parameters**:
+            :param username: Username.
+        """
         if username:
             return db.session.query(models.User).filter_by(
                 username=username

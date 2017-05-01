@@ -41,7 +41,7 @@ login_manager.init_app(app)
 
 def load_admin():
     """
-    Configuration admin
+    Configuration admin.
     """
     from apps.auth.controllers import MyAdminIndexView
     admin = Admin(
@@ -56,7 +56,7 @@ admin = load_admin()
 
 def import_modules():
     """
-    Import modules
+    Import modules.
     """
     from apps import admin, api, urls
 

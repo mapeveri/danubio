@@ -23,7 +23,7 @@ def _make_context():
 
 def _validuser():
     """
-    Valid user data
+    Valid user data.
     """
     username = prompt('Username')
     if not username:
@@ -62,7 +62,7 @@ def _validuser():
 @manager.command
 def createsuperuser():
     """
-    Method for create super user
+    Method for create super user.
     """
     data = _validuser()
     user = models.User(
@@ -84,7 +84,7 @@ def createsuperuser():
 @manager.command
 def createuser():
     """
-    Method for create user
+    Method for create user.
     """
     data = _validuser()
     user = models.User(

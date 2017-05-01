@@ -20,14 +20,14 @@ class ModemGSM(object):
             cls.instance = object.__new__(cls, *args, **kargs)
         return cls.instance
 
-    """
-    Send sms with command at.
-        :param number: Number to send sms
-        :param content: Description sms
-        :param user: User sending sms
-        :param internal_id: Identication of transaction (Campaign)
-    """
     def send_sms(self, number, message, user, internal_id):
+        """
+        Send sms with command at.
+            :param number: Number to send sms
+            :param content: Description sms
+            :param user: User sending sms
+            :param internal_id: Identication of transaction (Campaign)
+        """
         self.port.write(b'ATZ\r')
         response = self.port.readline()
         print(response)
@@ -59,12 +59,12 @@ class ModemGSM(object):
         db.session.add(message)
         db.session.commit()
 
-    """
-    Get received sms of a internal_id with command at.
-        :param user: User logged
-        :param internal_id: Identication of transaction (Campaign)
-    """
     def get_received_sms(self, user, internal_id):
+        """
+        Get received sms of a internal_id with command at.
+            :param user: User logged
+            :param internal_id: Identication of transaction (Campaign)
+        """
         return None
 
     def __del__(self):
