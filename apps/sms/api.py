@@ -1,3 +1,5 @@
+import json
+
 from flask import request
 from flask_login import current_user, login_required
 from flask_restful import Resource
@@ -58,7 +60,17 @@ class GetReceivedSms(Resource):
                 # Instance GSM Class
                 instanceGsm = ModemGSM()
                 # Get received
-                data = instanceGsm.get_received_sms(current_user, internal_id)
+                data = instanceGsm.get_received_sms(internal_id)
+
+                # Convert to json data
+                records = []
+                for d in data:
+                    records.append({
+                        "number": d.number, "user_id": d.user_id,
+                        "created": d.created.strftime('%m/%d/%Y'),
+                        "message": d.message
+                    })
+                data = json.dumps(records)
             except Exception:
                 return {
                     'result': 'error',
