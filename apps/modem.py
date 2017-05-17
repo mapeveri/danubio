@@ -1,4 +1,5 @@
 import serial
+import time
 
 from app import app, db
 from apps.sms.models import Message
@@ -29,25 +30,20 @@ class ModemGSM(object):
             :param internal_id: Identication of transaction (Campaign)
         """
         self.port.write(b'ATZ\r')
-        response = self.port.readline()
-        print(response)
+        time.sleep(1)
 
         self.port.write(b'AT+CMGF=1\r')
-        response = self.port.readline()
-        print(response)
+        time.sleep(1)
 
         number_gsm = str.encode(app.config["NUMBER_GSM"])
         self.port.write(b'AT+CSCA="' + number_gsm + b'"')
-        response = self.port.readline()
-        print(response)
+        time.sleep(1)
 
         self.port.write(b'AT+CMGS="' + str.encode(number) + b'"\r')
-        response = self.port.readline()
-        print(response)
+        time.sleep(1)
 
         self.port.write(str.encode(message) + b"\r")
-        response = self.port.readline()
-        print(response)
+        time.sleep(1)
 
         self.port.write(bytes([26]))
 
