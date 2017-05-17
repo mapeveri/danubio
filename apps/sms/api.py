@@ -6,6 +6,7 @@ from flask_restful import Resource
 
 from app import api
 from apps.modem import ModemGSM
+from apps.sms.models import Message
 
 
 class SendSms(Resource):
@@ -57,10 +58,10 @@ class GetReceivedSms(Resource):
         # Check parameters
         if internal_id:
             try:
-                # Instance GSM Class
-                instanceGsm = ModemGSM()
                 # Get received
-                data = instanceGsm.get_received_sms(internal_id)
+                data = Message.query.filter_by(
+                    internal_id=internal_id, received=True
+                ).all()
 
                 # Convert to json data
                 records = []

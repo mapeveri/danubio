@@ -8,11 +8,11 @@ from apps.auth.utils import ModelViewSecurity
 class MessageAdmin(ModelViewSecurity):
     form_columns = (
         'message', 'number', 'created',
-        'internal_id', 'user'
+        'internal_id', 'user', 'received',
     )
     column_list = (
         'message', 'number', 'created',
-        'internal_id', 'user'
+        'internal_id', 'user', 'received',
     )
 
 admin.add_view(MessageAdmin(Message, db.session))

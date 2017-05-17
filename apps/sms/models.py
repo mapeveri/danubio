@@ -14,6 +14,7 @@ class Message(db.Model):
         :param internal_id: Id campaign.
         :param user_id: User that created the sms.
         :param user: User relation.
+        :param received: If is a message received
     """
     __tablename__ = 'Messages'
 
@@ -27,6 +28,7 @@ class Message(db.Model):
     internal_id = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
     user = db.relationship('User', foreign_keys=user_id)
+    received = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<Message %r>' % (self.message)

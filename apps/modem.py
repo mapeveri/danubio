@@ -50,18 +50,17 @@ class ModemGSM(object):
         # Add message in db
         message = Message(
             message=message, number=number,
-            user=user, internal_id=internal_id
+            user=user, internal_id=internal_id,
+            received=False
         )
         db.session.add(message)
         db.session.commit()
 
-    def get_received_sms(self, internal_id):
+    def get_received_sms(self):
         """
         Get received sms of a internal_id with command at.
-            :param user: User logged
-            :param internal_id: Identication of transaction (Campaign)
         """
-        return Message.query.filter_by(internal_id=internal_id).all()
+        return None
 
     def __del__(self):
         self.port.close()
