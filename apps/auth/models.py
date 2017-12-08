@@ -58,6 +58,7 @@ def hash_password(target, value, oldvalue, initiator):
     if value is not None:
         return generate_password_hash(value)
 
+
 # Setup listener on User attribute password
 event.listen(User.password, 'set', hash_password, retval=True)
 

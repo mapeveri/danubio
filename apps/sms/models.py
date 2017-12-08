@@ -20,7 +20,7 @@ class Message(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(500), nullable=False)
-    number = db.Column(db.Integer, nullable=False)
+    number = db.Column(db.String(50), nullable=False)
     created = db.Column(
         db.DateTime, nullable=False,
         default=datetime.datetime.utcnow

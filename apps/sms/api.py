@@ -11,10 +11,14 @@ from apps.sms.models import Message
 
 class SendSms(Resource):
     """
-    Send sms API with ModemGSM class.
+    Class for send sms.
     """
+
     @login_required
     def post(self):
+        """
+        Send sms API with ModemGSM class.
+        """
         # Parameters sms
         number = request.form['number']
         message = request.form['message']
@@ -24,9 +28,9 @@ class SendSms(Resource):
         if number and message and internal_id:
             try:
                 # Instance GSM Class
-                instanceGsm = ModemGSM()
+                gsm = ModemGSM()
                 # Send SMS
-                instanceGsm.send_sms(
+                gsm.send_sms(
                     number, message, current_user, internal_id
                 )
             except Exception:
@@ -48,10 +52,14 @@ class SendSms(Resource):
 
 class GetReceivedSms(Resource):
     """
-    Get received sms API with ModemGSM class.
+    Class for get sms.
     """
+
     @login_required
     def post(self):
+        """
+        Get received sms API with ModemGSM class.
+        """
         # Parameters sms
         internal_id = request.form['internal_id']
 
@@ -65,11 +73,11 @@ class GetReceivedSms(Resource):
 
                 # Convert to json data
                 records = []
-                for d in data:
+                for record in data:
                     records.append({
-                        "number": d.number, "user_id": d.user_id,
-                        "created": d.created.strftime('%m/%d/%Y'),
-                        "message": d.message
+                        "number": record.number, "user_id": record.user_id,
+                        "created": record.created.strftime('%m/%d/%Y'),
+                        "message": record.message
                     })
                 data = json.dumps(records)
             except Exception:

@@ -6,3 +6,4 @@ migrations
 conf/config_local.py
 notes.txt
 /.vscode/
+package-lock.json
