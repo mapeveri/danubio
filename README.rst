@@ -1,7 +1,7 @@
 Danubio
 =======
 
-Danubio is an open source SMS-Gateway written in python.
+Danubio is an open source SMS-Gateway written in Python/Flask.
 
 Status
 ------
